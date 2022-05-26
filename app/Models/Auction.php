@@ -9,7 +9,7 @@ class Auction extends Model
 {
     use HasFactory;
 
-    protected $table = 'auction';
+    protected $table = 'auctions';
 
     /**
      * The attributes that are mass assignable.
@@ -17,15 +17,17 @@ class Auction extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'item',
+        'title',
+        'description',
+        'image',
         'bid',
     ];
-  
+
     /**
      * Get the comments for the blog post.
      */
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
-    }   
+        return $this->belongsToMany(User::class)->withPivot('location');
+    }      
 }

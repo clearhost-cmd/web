@@ -1,22 +1,26 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Pivot;
 
 use App\Models\Auction;
 use App\Models\User;
+
+use App\Models\Pivot\AuctionUser;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class AuctionFactory extends Factory
+class AuctionUserFactory extends Factory
 {
+
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Auction::class;
+    protected $model = AuctionUser::class;
 
     /**
      * Define the model's default state.
@@ -26,10 +30,9 @@ class AuctionFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->unique()->word(),
-            'description' => $this->faker->text(50),
-            'image' => $this->faker->imageUrl(50,50,'cats'),
-            'bid' => $this->faker->numberBetween(1, 500)
+            'auction_id' => Auction::all()->random()->id,
+            'user_id' => User::all()->random()->id,
+            'location' => $this->faker->country(),
         ];
     }
 }

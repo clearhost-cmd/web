@@ -51,6 +51,8 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
+
+            {{ App\Models\User::all() }}
         </form>
     </x-auth-card>
 </x-guest-layout>

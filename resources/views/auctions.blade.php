@@ -12,19 +12,19 @@
                     <table class="table-auto w-full text-left" style="text-align: left;">
                         <thead>
                             <tr>
-                                <th>User</th>
-                                <th>Item</th>
-                                <th>£ Bid</th>
-                                <th>Date Bidded</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Winning Bid</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($auctions as $auction)
                                 <tr>
-                                    <td>{{ $auction->user->name }}</td>
-                                    <td>{{ $auction->item }}</td>
-                                    <td>£ {{ $auction->bid }}</td>
-                                    <td>{{ $auction->created_at }}</td>                                    
+                                    <td><a href="auctions/{{ $auction->id }}"> {{ $auction->title }}</a></td>
+                                    <td>{{ $auction->description }}</td>
+                                    <td><img src="{{ $auction->image }}" style="width:50px;height:50px;"></td>                                    
+                                    <td>£{{ $auction->bid }}</td>                                    
                                 </tr>
                             @endforeach                            
                         </tbody>

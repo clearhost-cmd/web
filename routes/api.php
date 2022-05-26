@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuctionController;
+use App\Http\Controllers\HouseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

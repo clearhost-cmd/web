@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pivot\AuctionUser;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class TableSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -13,7 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(RecordSeeder::class);
-        $this->call(TableSeeder::class);
+        AuctionUser::factory()->times(50)->create();
     }
 }

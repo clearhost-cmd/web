@@ -44,8 +44,8 @@ class User extends Authenticatable
     /**
      * Get the comments for the blog post.
      */
-    public function auction()
+    public function auctions()
     {
-        return $this->hasMany(Auction::class);
-    }    
+        return $this->belongsToMany(Auction::class)->withPivot('location');
+    }
 }

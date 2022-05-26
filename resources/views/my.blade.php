@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('All Auctions') }}
         </h2>
     </x-slot>
 
@@ -12,15 +12,19 @@
                     <table class="table-auto w-full text-left" style="text-align: left;">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Winning Bid</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach (Auth::user()->auctions as $auction)
                                 <tr>
-                                    <td><a href="/web/public/users/{{ $user->id }}">{{ $user->name }}</a></td>
-                                    <td>{{ $user->email }}</td>                                   
+                                    <td><a href="auctions/{{ $auction->id }}"> {{ $auction->title }}</a></td>
+                                    <td>{{ $auction->description }}</td>
+                                    <td><img src="{{ $auction->image }}" style="width:50px;height:50px;"></td>                                    
+                                    <td>£{{ $auction->bid }}</td>                                    
                                 </tr>
                             @endforeach                            
                         </tbody>
