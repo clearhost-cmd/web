@@ -26,7 +26,7 @@
                                     <td>{{ $auction->description }}</td>
                                     <td><img src="{{ $auction->image }}" style="width:50px;height:50px;"></td>                                    
                                     <td>£{{ $auction->bid }}</td>        
-                                    <td>£{{ $auction->created_at }}</td>        
+                                    <td>{{ $auction->created_at }}</td>        
                                     
                                 </tr>
                             @endforeach                               
