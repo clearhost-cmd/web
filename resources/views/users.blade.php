@@ -19,7 +19,7 @@
                         <tbody>
                             @foreach ($users as $user)
                                 <tr>
-                                    <td><a href="/web/public/users/{{ $user->id }}">{{ $user->name }}</a></td>
+                                    <td><a href="users/{{ $user->id }}">{{ $user->name }}</a></td>
                                     <td>{{ $user->email }}</td>                                   
                                 </tr>
                             @endforeach                            
